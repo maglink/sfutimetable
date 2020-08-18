@@ -30,6 +30,14 @@ def print_all_groups():
         
     print("#",len(res))
 
+
+def print_all_auditories():
+    res = lessons.distinct("audit_list")
+    for les in res:
+        print(les)
+
+    print("#",len(res))
+
 def print_all_lessons():
     for les in lessons.find().sort("time_code"):
         print(les)
@@ -67,6 +75,8 @@ def pprint_lesson(ls):
 
 
 def test_print_all():
+    print_all_auditories()
+    print("----")
     print_all_groups()
     print("----")
     print_teachers()
@@ -76,26 +86,26 @@ def test_schedule_for_group():
     print_schedule_for_group("УБ12-10")
     print("----")
 
-def test_lessons_for_teacher(): 
-    print_lessons_for_teacher("Поваляев В.А.")
+def test_lessons_for_teacher():
+    print_lessons_for_teacher("Бандура Т.В.")
     print("----")
     print_lessons_for_teacher("Бронов С.А.")
     print("----")
     print_lessons_for_teacher("Авласко П.В.")
     print("----")
-    
+
 def test_print_audit():
     print_audit("УЛК407")
     print("----")
     print_audit("УЛК307")
     print("----")
-    print_audit({"$regex" : ".*Г.*"})
+    print_audit({"$regex": ".*Г.*"})
     print("----")
-    print_audit({"$regex" : ".*А3.*"})
+    print_audit({"$regex": ".*А3.*"})
     print("----")
-    
+
 if __name__ == "__main__":
-    #test_print_all()
+    test_print_all()
     test_schedule_for_group()
     test_lessons_for_teacher()
     test_print_audit()

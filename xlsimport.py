@@ -10,8 +10,8 @@ init()
 EDGE_X,EDGE_Y = 3,5
 TITLE_DAY, TITLE_TIME, TITLE_WEEK  = "Дни", "Часы", "Неделя"
 TEACHER_NAME_PAT = "(\w+\s\w\.\w\.)\s*"
-AUDIT_PAT = "(\w+\d{3}\w?)\s*"
-LESSON_TYPE_PAT = "(пр\.|лек\.|лаб\.)"
+AUDIT_PAT = "(\d{3}\w|\d{3}|\d-\d\d)"
+LESSON_TYPE_PAT = "(пр|лек|лаб)"
 
 def write_lesson_to_db(lesson_data):
 	db_add_lesson(lesson_data)
