@@ -2,12 +2,12 @@ import math
 import Levenshtein
 
 DAY_DICT = {
-    1: "ПОНЕДЕЛЬНИК",
-    2: "ВТОРНИК",
-    3: "СРЕДА",
-    4: "ЧЕТВЕРГ",
-    5: "ПЯТНИЦА",
-    6: "СУББОТА",   
+	1: "ПОНЕДЕЛЬНИК",
+	2: "ВТОРНИК",
+	3: "СРЕДА",
+	4: "ЧЕТВЕРГ",
+	5: "ПЯТНИЦА",
+	6: "СУББОТА",
 }
 
 TIME_DICT = {
@@ -74,9 +74,9 @@ def near_time(time, time_type):
 	return near
 
 def get_time_code(time):
-    timeH, timeM = time.split(":");
-    minutes = int(timeH)*60 + int(timeM);
-    return minutes
+	timeH, timeM = time.split(":");
+	minutes = int(timeH)*60 + int(timeM);
+	return minutes
 
 def get_time(time):
 	if time.find("-") == -1:
@@ -92,14 +92,14 @@ def time_format(time):
 	return time_insert_colon(time)
 
 def time_insert_colon(time):
-    colon_chr = ':'
-    if time.find(colon_chr) == -1:
-        index = -2
-        if len(time) + index > 0:
-            return time[:index] + colon_chr + time[index:]
-        else:
-            return
-    return time
+	colon_chr = ':'
+	if time.find(colon_chr) == -1:
+		index = -2
+		if len(time) + index > 0:
+			return time[:index] + colon_chr + time[index:]
+		else:
+			return
+	return time
 
 # Day
 
@@ -111,6 +111,7 @@ def get_day_code(day):
 	return near_day(day)
 	
 def near_day(day):
+	day = day.strip()
 	near = 1
 	near_ratio = 0
 	for dkey, dname in DAY_DICT.items():
